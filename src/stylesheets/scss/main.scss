@@ -1,0 +1,12 @@
+@forward 'curved';
+@forward  'colors';
+@forward 'grid';
+section{
+    margin-top: 1rem;
+}
+.service-links{
+    a{
+        text-decoration: none;
+        margin-right: 1rem;
+    }
+}
