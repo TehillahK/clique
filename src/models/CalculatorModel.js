@@ -31,4 +31,7 @@ export class CalculatorModel{
     get repaymentFee(){
         return this.#repaymentFee;
     }
-}
+    get loan(){
+        return { amountReceivable:this.amountPayable(),repaymentFee:this.repaymentFee(),serviceFee:this.serviceFee()}
+    }
+}  
