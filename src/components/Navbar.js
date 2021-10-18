@@ -33,20 +33,16 @@ function ToggleButton(){
 function Buttons(){
     return(
         <div className="d-flex center">
-            <Link>Sign in</Link>
-            <Link to={'/'} className="btn btn-primary">Contact us</Link>
+            <NavLinks  />
         </div>
     )
 }
 function NavItems(){
     return(
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <Link to={'/'} className="nav-link active" aria-current="page" >Home</Link>
-                </li>
+        <div className=" collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="nav navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end ">
                 <li className="nav-item dropdown">
-                    <a href="#"  className="nav-link dropdown-toggle" aria-expanded="false" role="button" data-bs-toggle="dropdown" >Services</a>
+                    <Link to="/"  className="nav-link dropdown-toggle" aria-expanded="false" role="button" data-bs-toggle="dropdown" >Services</Link>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
                             <Link to={'/'} className="nav-link active" aria-current="page" >Service #1</Link>
@@ -59,11 +55,14 @@ function NavItems(){
                 <li class="nav-item">
                     <Link to={'/'} className="nav-link active" aria-current="page" >About us</Link>
                 </li>
-                <li class="nav-item">
-                    <Search />
-                </li>
+               <li class="nav-item">
+                    <Link className="nav-link active" to="" >Sign in</Link>
+               </li>
+               <li class="nav-item">
+                    <Link to={'/'} className="btn btn-primary">Contact us</Link>
+               </li>
             </ul>
-            <Buttons />
+           
         </div>
     )
 }
@@ -78,11 +77,13 @@ function NavLinks() {
 }
 const Navbar = () => {
   return (
-    <nav className="navbar  navbar-expand-lg navbar-light ">
+    <nav className="navbar  navbar-expand-lg navbar-light d-flex justify-content-center ">
         <div className="container">
-            <NavLogo />
-            <ToggleButton />
-            <NavLinks />
+            <div className="d-md-flex flex-row justify-content-center">
+                <NavLogo />
+                <ToggleButton />
+            </div>  
+                <Buttons />
         </div>
     </nav>
   );

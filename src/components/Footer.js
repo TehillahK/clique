@@ -22,10 +22,13 @@ function Links(){
 const Footer = () => {
     return ( 
         <footer className="d-flex flex-column bg-dark">
-            <Links />
-            <div className=" copy-right-line">
-                <p className="d-flex justify-content-center  fw-lighter ">&copy; 2022 Clique Finance All rights reserved </p>
+            <div className="container">
+                <Links />
             </div>
+                <div className=" copy-right-line">
+                    <p className="d-flex justify-content-center  fw-lighter ">&copy; 2022 Clique Finance All rights reserved </p>
+                </div>
+           
         </footer>
      );
 }
