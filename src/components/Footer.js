@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function Links(){
     return(
 
-        <div className="links text-white d-flex  justify-content-evenly align-items-md-center">
+        <div className="links text-white d-md-flex  mb-3  justify-content-evenly align-items-md-center">
             
             <div className="d-flex flex-column">
                 <h6>PRODUCTS</h6>
