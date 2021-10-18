@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.home .card {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.home .card .card-text {
+  width: 19rem;
+}
+
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 900px;
+  padding-top: 100px;
+}
+
+.curve {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.curve::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  transform: translate(85%, 60%);
+  background-color: white;
+}
+
+.curve::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  background-color: #3c31dd;
+  transform: translate(-4%, 40%);
+  z-index: -1;
+}
+
+.blue {
+  background: #3c31dd;
+}
+
+.manual-grid {
+  display: grid;
+}
+
+.two-cols {
+  grid-template-columns: auto auto;
+}
+
+section {
+  margin-top: 1rem;
+}
+
+.service-links a {
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+/*# sourceMappingURL=main.css.map */
