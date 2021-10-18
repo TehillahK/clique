@@ -15,7 +15,7 @@ const AmountContext = createContext();
 
 function TypeOfCustomer() {
   return (
-    <div className={"d-grid gap-2   "}>
+    <div className={"d-grid gap-2  blue "}>
       <button className="btn btn-link d-flex justify-content-center">
         New Customer
       </button>
@@ -27,9 +27,8 @@ function TypeOfCustomer() {
 }
 function Header() {
   return (
-    <div className={"card-header"}>
-      <h2>How Much Do You Need?</h2>
-      <TypeOfCustomer />
+    <div className={"card-header d-flex justify-content-center align-items-center bg-primary"} style={{height:"6rem"}}>
+      <h4 className="text-white ">How Much Do You Need?</h4>
     </div>
   );
 }
@@ -51,12 +50,10 @@ function Sliders(props) {
         />
       </div>
       <div>
-        {showMonths && (
           <div>
             <p>For how many months?</p>
             <Slider valueLabelDisplay="auto" min={1} max={12} />
           </div>
-        )}
       </div>
     </div>
   );
@@ -104,10 +101,6 @@ function Estimates(props) {
   const amountReceivable = props.amountRecievable;
   return (
     <div className={"flex flex-column estimates"}>
-      <div className={"flex flex-row space-between estimate"}>
-        <p>Service fee</p>
-        <p>K{serviceFee}</p>
-      </div>
       <div className={"flex flex-row space-between  estimate"}>
         <p>Amount You Receive</p>
         <p>K{amountReceivable}</p>

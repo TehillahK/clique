@@ -78,7 +78,7 @@ function NavLinks() {
 }
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light ">
+    <nav className="navbar  navbar-expand-lg navbar-light ">
         <div className="container">
             <NavLogo />
             <ToggleButton />
