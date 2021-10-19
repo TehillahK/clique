@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import Logo from "../assets/logos/logo-transparent.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
+import Logo from "../assets/logos/logo-transparent.png";
 function NavLogo(){
     return(
         <Link className="navbar-brand" to={'/'}>
@@ -56,10 +58,17 @@ function NavItems(){
                     <Link to={'/'} className="nav-link active" aria-current="page" >About us</Link>
                 </li>
                <li class="nav-item">
-                    <Link className="nav-link active" to="" >Sign in</Link>
+                    <Link className="nav-link active" to={'/login'} >
+                       
+                        Login
+                    </Link>
                </li>
                <li class="nav-item">
-                    <Link to={'/'} className="btn btn-primary">Contact us</Link>
+                    
+                    <Link to={'/'} className="btn btn-primary d-flex justify-content-center">
+
+                        Contact us
+                    </Link>
                </li>
             </ul>
            
@@ -79,10 +88,10 @@ const Navbar = () => {
   return (
     <nav className="navbar  navbar-expand-lg navbar-light d-flex justify-content-center ">
         <div className="container">
-            <div className="d-md-flex flex-row justify-content-center">
+         
                 <NavLogo />
                 <ToggleButton />
-            </div>  
+           
                 <Buttons />
         </div>
     </nav>
