@@ -6,7 +6,11 @@ const SignIn = () => {
         <div>
         <Navbar />
         <section className="container" style={{marginBottom:"5rem"}}>
-             <UserLogin />   
+        <div className="container-fluid">
+             <div className="d-flex flex-row justify-content-end">
+                <UserLogin />   
+             </div>
+        </div>
          </section>
     </div>
       );
