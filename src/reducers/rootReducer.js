@@ -1,3 +1,4 @@
+
 const initState ={
     loan:{
         amount:5,
@@ -9,6 +10,9 @@ const initState ={
 export  const rootReducer =(state=initState,action)=>{
     if(action.type==="UPDATE_LOAN"){
         state.loan.amount=action.amount;
+        state.loan.months=action.months;
+        state.loan.amountPayable=action.receivable;
+        state.loan.monthlyPayment= state.loan.amountPayable/state.loan.months;
     }
     return state;
 }

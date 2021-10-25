@@ -31,7 +31,7 @@ const LoanData = (props) => {
                     <li class="list-group-item">
                         <div className="d-flex justify-content-between">
                             <p>Monthly payment</p>
-                            <p>k{months}</p>
+                            <p>k{monthlyPayment}</p>
                         </div>
                     </li>
                 </ul>

@@ -1,5 +1,5 @@
 import { useState,useRef, createContext, useContext } from "react";
-import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
 import {
   Slider,
@@ -14,18 +14,7 @@ import LoanModal from "./LoanModal";
 const AmountContext = createContext();
 
 
-function TypeOfCustomer() {
-  return (
-    <div className={"d-grid gap-2  blue "}>
-      <button className="btn btn-link d-flex justify-content-center">
-        New Customer
-      </button>
-      <button className="btn btn-link d-flex justify-content-center">
-        Returning Customer
-      </button>
-    </div>
-  );
-}
+
 function Header() {
   return (
     <div className={"card-header d-flex justify-content-center align-items-center bg-primary"} style={{height:"6rem"}}>
@@ -36,6 +25,7 @@ function Header() {
 function Sliders(props) {
   const showMonths = props.showMonths;
   const changeAmount = useContext(AmountContext);
+  const changeMonths=props.changeMonths;
   return (
     <div className="flex flex-column">
       <div>
@@ -53,7 +43,15 @@ function Sliders(props) {
       <div>
           <div>
             <p>For how many months?</p>
-            <Slider valueLabelDisplay="auto" min={1} max={12} />
+            <Slider valueLabelDisplay="auto" 
+                    min={1}
+                    max={12} 
+                    onChange={
+                      (e,val)=>{
+                          changeMonths(val)
+                      }
+                    }
+             />
           </div>
       </div>
     </div>
@@ -119,8 +117,11 @@ function Estimates(props) {
 }
 function SubmitButton(props) {
   const amount = props.amount;
+  const months = props.months;
+  const receivable=props.receivable;
+  const updateLoan=props.updateLoan;
   const handleClick=()=>{
-      mapDispatchToProps()
+      updateLoan(amount,months,receivable)
   }
   return (
     <div className={"d-grid gap-2"}>
@@ -139,9 +140,10 @@ function SubmitButton(props) {
 }
 
 const Calculator = (props) => {
-  console.log(props)
   const calcModel = new CalculatorModel();
   const closeBtn= useRef();
+  const updateLoan = props.updateLoan;
+  const [months,setMonths]=useState(1);
   const [showMonths, setShowMonths] = useState(false);
   const [loanType, setLoanType] = useState("salary");
   const [amountPayable, setAmountPayable] = useState(500);
@@ -166,19 +168,22 @@ const Calculator = (props) => {
     }
     setShowMonths(false);
   };
+  const updateMonths=(months)=>{
+    setMonths(months)
+  }
   return (
     <AmountContext.Provider value={updateAmount}>
       <div className={"card"} style={{ width: "35rem" }}>
         <Header />
         <div className={"card-body"}>
-          <Sliders showMonths={showMonths} />
+          <Sliders showMonths={showMonths} changeMonths={updateMonths} />
           <LoanType loanType={loanType} updateLoanType={updateLoanType} />
           <Estimates
             serviceFee={serviceFee}
             amountRecievable={amountRecievable}
             repayment={repayment}
           />
-          <SubmitButton amount={amountPayable}  />
+          <SubmitButton amount={amountPayable} updateLoan={updateLoan} months={months} receivable={amountRecievable} />
         </div>
       </div>
       <LoanModal />
@@ -188,15 +193,18 @@ const Calculator = (props) => {
 
 const mapStateToProps=(state)=>{
   return{
-    
+      amount:state.loan.amount,
+      months:state.loan.months,
+      amountPayable:state.loan.amountPayable,
+      monthlyPayment:state.loan.monthlyPayment
   }
 }
 
 
 const mapDispatchToProps=(dispatch)=>{
   return{
-      updateLoan:(amount)=>{  
-        dispatch({type:"UPDATE_LOAN",amount:amount})
+      updateLoan:(amount,months,receivable)=>{  
+        dispatch({type:"UPDATE_LOAN",amount:amount,months:months,receivable:receivable})
     }
   }
 }
