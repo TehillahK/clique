@@ -1,5 +1,6 @@
 import { useState,useRef, createContext, useContext } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   Slider,
   Radio,
@@ -116,13 +117,20 @@ function Estimates(props) {
     </div>
   );
 }
-function SubmitButton() {
+function SubmitButton(props) {
+  const amount = props.amount;
+  const handleClick=()=>{
+      mapDispatchToProps()
+  }
   return (
     <div className={"d-grid gap-2"}>
       <button
         className="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
+        onClick={
+          handleClick
+        }
       >
         Check eligibility
       </button>
@@ -130,7 +138,8 @@ function SubmitButton() {
   );
 }
 
-const Calculator = () => {
+const Calculator = (props) => {
+  console.log(props)
   const calcModel = new CalculatorModel();
   const closeBtn= useRef();
   const [showMonths, setShowMonths] = useState(false);
@@ -169,7 +178,7 @@ const Calculator = () => {
             amountRecievable={amountRecievable}
             repayment={repayment}
           />
-          <SubmitButton />
+          <SubmitButton amount={amountPayable}  />
         </div>
       </div>
       <LoanModal />
@@ -177,5 +186,19 @@ const Calculator = () => {
   );
 };
 
-export default Calculator;
+const mapStateToProps=(state)=>{
+  return{
+    
+  }
+}
+
+
+const mapDispatchToProps=(dispatch)=>{
+  return{
+      updateLoan:(amount)=>{  
+        dispatch({type:"UPDATE_LOAN",amount:amount})
+    }
+  }
+}
+export default  connect(mapStateToProps,mapDispatchToProps)(Calculator);
 

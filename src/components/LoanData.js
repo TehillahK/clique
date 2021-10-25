@@ -1,4 +1,7 @@
+import { connect } from "react-redux";
 const LoanData = (props) => {
+    console.log(props)
+    const {amount,months,amountPayable,monthlyPayment} =props;
     return ( 
         <div className="card">
             <div className="card-header">
@@ -10,25 +13,25 @@ const LoanData = (props) => {
                     <li class="list-group-item">
                         <div className="d-flex justify-content-between">
                             <p>Amount</p>
-                            <p>k2000</p>
+                            <p>k{amount}</p>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div className="d-flex justify-content-between">
                             <p>months</p>
-                            <p>5 </p>
+                            <p>{months}</p>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div className="d-flex justify-content-between">
                             <p>Amount You Receive</p>
-                            <p>k2000</p>
+                            <p>k{amountPayable}</p>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div className="d-flex justify-content-between">
                             <p>Monthly payment</p>
-                            <p>k2000</p>
+                            <p>k{months}</p>
                         </div>
                     </li>
                 </ul>
@@ -36,5 +39,14 @@ const LoanData = (props) => {
         </div>
      );
 }
+
+const mapStateToProps=(state)=>{
+    return{
+        amount:state.loan.amount,
+        months:state.loan.months,
+        amountPayable:state.loan.amountPayable,
+        monthlyPayment:state.loan.monthlyPayment
+    }
+}
  
-export default LoanData;
+export default connect(mapStateToProps)(LoanData);

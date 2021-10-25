@@ -4,9 +4,12 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Footer from "./components/Footer";
 import SignIn from "./pages/SignIn";
+import AuthProvider  from "./contexts/AuthContext";
 function App() {
   return (
+    
     <Router>
+     
         <Switch>
           <Route exact path="/">
             <Home />
@@ -18,8 +21,11 @@ function App() {
             <SignIn />
           </Route>
         </Switch> 
+       
         <Footer />
+        
     </Router>
+  
     
   );
 }

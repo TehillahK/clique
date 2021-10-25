@@ -1,4 +1,7 @@
+import { useAuth } from "../contexts/AuthContext";
+
 const Login = (props) => {
+    const {signUp}=useAuth;
     return (
         <div className={'card'}>
                 <div className="card-header">
