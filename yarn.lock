@@ -1311,6 +1311,38 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
+"@firebase/app@^0.7.4":
+  "integrity" "sha512-XBrZb60m7N1XqmRhSJWADDD3J/0j9wM2VhxC5KUEtFA9SWfTn9Z3EWGtRGz7ahrMkgPJsmo0fXpvUh6cY8pQvQ=="
+  "resolved" "https://registry.npmjs.org/@firebase/app/-/app-0.7.4.tgz"
+  "version" "0.7.4"
+  dependencies:
+    "@firebase/component" "0.5.7"
+    "@firebase/logger" "0.3.0"
+    "@firebase/util" "1.4.0"
+    "tslib" "^2.1.0"
+
+"@firebase/component@0.5.7":
+  "integrity" "sha512-CiAHUPXh2hn/lpzMShNmfAxHNQhKQwmQUJSYMPCjf2bCCt4Z2vLGpS+UWEuNFm9Zf8LNmkS+Z+U/s4Obi5carg=="
+  "resolved" "https://registry.npmjs.org/@firebase/component/-/component-0.5.7.tgz"
+  "version" "0.5.7"
+  dependencies:
+    "@firebase/util" "1.4.0"
+    "tslib" "^2.1.0"
+
+"@firebase/logger@0.3.0":
+  "integrity" "sha512-7oQ+TctqekfgZImWkKuda50JZfkmAKMgh5qY4aR4pwRyqZXuJXN1H/BKkHvN1y0S4XWtF0f/wiCLKHhyi1ppPA=="
+  "resolved" "https://registry.npmjs.org/@firebase/logger/-/logger-0.3.0.tgz"
+  "version" "0.3.0"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"@firebase/util@1.4.0":
+  "integrity" "sha512-Qn58d+DVi1nGn0bA9RV89zkz0zcbt6aUcRdyiuub/SuEvjKYstWmHcHwh1C0qmE1wPf9a3a+AuaRtduaGaRT7A=="
+  "resolved" "https://registry.npmjs.org/@firebase/util/-/util-1.4.0.tgz"
+  "version" "1.4.0"
+  dependencies:
+    "tslib" "^2.1.0"
+
 "@fortawesome/fontawesome-common-types@^0.2.36":
   "integrity" "sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg=="
   "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.36.tgz"
@@ -11368,7 +11400,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.3":
+"tslib@^2.0.3", "tslib@^2.1.0":
   "integrity" "sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.1.0.tgz"
   "version" "2.1.0"
