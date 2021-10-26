@@ -4,7 +4,10 @@ export class CalculatorModel{
     #serviceFee;
     #repaymentFee;
     #interest
+    #rate
+    #months
     constructor(){
+        this.#months=1;
         this.#amountPayable=500;
         this.update()
     }
@@ -12,8 +15,10 @@ export class CalculatorModel{
     update(){
         this.#serviceFee=this.#amountPayable*0.1;
         this.#amountReceivable= this.#amountPayable - this.#serviceFee;
-        this.#interest=this.#amountPayable*0.1;
-        this.#repaymentFee=this.#amountPayable+this.#interest;
+        this.#rate=(0.0354 * this.#months)+ 0.1442
+        this.#interest=this.#amountPayable*this.#rate;
+        const repayment=this.#amountPayable + this.#interest;
+        this.#repaymentFee=repayment/this.#months;
     }
     /**
      * @param {number} amount
@@ -21,6 +26,12 @@ export class CalculatorModel{
     set amountPayable(amount){
         this.#amountPayable=amount;
         this.update()
+    }
+    /**
+     * @param {number} months
+     */
+    set months(months){
+        this.#months=months ;
     }
     get serviceFee(){
         return this.#serviceFee;

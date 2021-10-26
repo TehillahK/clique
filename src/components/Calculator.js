@@ -48,7 +48,7 @@ function Sliders(props) {
                     max={12} 
                     onChange={
                       (e,val)=>{
-                          changeMonths(val)
+                         changeMonths(val)
                       }
                     }
              />
@@ -143,7 +143,7 @@ const Calculator = (props) => {
   const calcModel = new CalculatorModel();
   const closeBtn= useRef();
   const updateLoan = props.updateLoan;
-  const [months,setMonths]=useState(1);
+  const [months,setMonths]=useState();
   const [showMonths, setShowMonths] = useState(false);
   const [loanType, setLoanType] = useState("salary");
   const [amountPayable, setAmountPayable] = useState(500);
@@ -155,7 +155,7 @@ const Calculator = (props) => {
   const updateAmount = (amount) => {
     setAmountPayable(amount);
     calcModel.amountPayable = amountPayable;
-    setServiceFee(calcModel.serviceFee);
+   
     setAmountRecievable(calcModel.amountRecievable);
     setRepayment(calcModel.repaymentFee);
   };
@@ -168,8 +168,13 @@ const Calculator = (props) => {
     }
     setShowMonths(false);
   };
-  const updateMonths=(months)=>{
-    setMonths(months)
+  const updateMonths=(numMonths)=>{
+    setMonths(numMonths)
+    calcModel.months=months;
+    calcModel.update()
+    console.log( calcModel)
+    setAmountRecievable(calcModel.amountRecievable);
+    setRepayment(calcModel.repaymentFee);
   }
   return (
     <AmountContext.Provider value={updateAmount}>
