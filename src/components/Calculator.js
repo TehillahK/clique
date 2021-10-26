@@ -175,6 +175,7 @@ const Calculator = (props) => {
   };
   const updateMonths=(numMonths)=>{
     setMonths(numMonths)
+    calcModel.amountPayable=amountPayable;
     calcModel.months=months;
     calcModel.update()
     setAmountRecievable(calcModel.amountRecievable);
