@@ -12,7 +12,7 @@ export  const rootReducer =(state=initState,action)=>{
         state.loan.amount=action.amount;
         state.loan.months=action.months;
         state.loan.amountPayable=action.receivable;
-        state.loan.monthlyPayment= state.loan.amountPayable/state.loan.months;
+        state.loan.monthlyPayment= action.repayment;
     }
     return state;
 }

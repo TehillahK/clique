@@ -120,9 +120,10 @@ function SubmitButton(props) {
   const amount = props.amount;
   const months = props.months;
   const receivable=props.receivable;
+  const repayment=props.repayment;
   const updateLoan=props.updateLoan;
   const handleClick=()=>{
-      updateLoan(amount,months,receivable)
+      updateLoan(amount,months,receivable,repayment)
   }
   return (
     <div className={"d-grid gap-2"}>
@@ -176,7 +177,6 @@ const Calculator = (props) => {
     setMonths(numMonths)
     calcModel.months=months;
     calcModel.update()
-    console.log( calcModel.nextPaymentDate)
     setAmountRecievable(calcModel.amountRecievable);
     setRepayment(calcModel.repaymentFee);
   }
@@ -193,7 +193,7 @@ const Calculator = (props) => {
             repayment={repayment}
             date={dueDate}
           />
-          <SubmitButton amount={amountPayable} updateLoan={updateLoan} months={months} receivable={amountRecievable} />
+          <SubmitButton amount={amountPayable} updateLoan={updateLoan} months={months} receivable={amountRecievable} repayment={repayment} />
         </div>
       </div>
       <LoanModal />
@@ -213,10 +213,14 @@ const mapStateToProps=(state)=>{
 
 const mapDispatchToProps=(dispatch)=>{
   return{
-      updateLoan:(amount,months,receivable)=>{  
-        dispatch({type:"UPDATE_LOAN",amount:amount,months:months,receivable:receivable})
+      updateLoan:(amount,months,receivable,repayment)=>{  
+        dispatch({type:"UPDATE_LOAN",amount:amount,months:months,receivable:receivable,repayment:repayment})
     }
   }
 }
 export default  connect(mapStateToProps,mapDispatchToProps)(Calculator);
 
+SubmitButton.defaultProps ={
+  amount:500,
+  months:1
+};
