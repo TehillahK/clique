@@ -17,7 +17,7 @@ export class CalculatorModel{
     }
 
     update(){
-        this.#serviceFee=this.#amountPayable*0.1;
+        this.#serviceFee=0;
         this.#amountReceivable= this.#amountPayable - this.#serviceFee;
         this.#rate=(0.0354 * this.#months)+ 0.1442
         this.#interest=this.#amountPayable*this.#rate;
