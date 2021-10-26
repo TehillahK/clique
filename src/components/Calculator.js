@@ -98,6 +98,7 @@ function Estimates(props) {
   const serviceFee = props.serviceFee;
   const repayment = props.repayment;
   const amountReceivable = props.amountRecievable;
+  const date =props.date;
   return (
     <div className={"flex flex-column estimates"}>
       <div className={"flex flex-row space-between  estimate"}>
@@ -110,7 +111,7 @@ function Estimates(props) {
       </div>
       <div className={"flex flex-row space-between"}>
         <p>Next Payment Date</p>
-        <p>31/10/20</p>
+        <p>{date}</p>
       </div>
     </div>
   );
@@ -152,6 +153,9 @@ const Calculator = (props) => {
     calcModel.amountRecievable
   );
   const [repayment, setRepayment] = useState(calcModel.repaymentFee);
+  const [dueDate,setDueDate]=useState(
+    calcModel.nextPaymentDate
+  )
   const updateAmount = (amount) => {
     setAmountPayable(amount);
     calcModel.amountPayable = amountPayable;
@@ -172,7 +176,7 @@ const Calculator = (props) => {
     setMonths(numMonths)
     calcModel.months=months;
     calcModel.update()
-    console.log( calcModel)
+    console.log( calcModel.nextPaymentDate)
     setAmountRecievable(calcModel.amountRecievable);
     setRepayment(calcModel.repaymentFee);
   }
@@ -187,6 +191,7 @@ const Calculator = (props) => {
             serviceFee={serviceFee}
             amountRecievable={amountRecievable}
             repayment={repayment}
+            date={dueDate}
           />
           <SubmitButton amount={amountPayable} updateLoan={updateLoan} months={months} receivable={amountRecievable} />
         </div>

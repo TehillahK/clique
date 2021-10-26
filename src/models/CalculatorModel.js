@@ -6,9 +6,13 @@ export class CalculatorModel{
     #interest
     #rate
     #months
+    #nextPaymentDate
     constructor(){
+        const today= new Date();
+       
         this.#months=1;
         this.#amountPayable=500;
+        this.#nextPaymentDate=new Date(today.getFullYear(), today.getMonth()+1, 0);
         this.update()
     }
 
@@ -44,5 +48,11 @@ export class CalculatorModel{
     }
     get loan(){
         return { amountReceivable:this.amountPayable(),repaymentFee:this.repaymentFee(),serviceFee:this.serviceFee()}
+    }
+    get nextPaymentDate(){
+
+        const result=new Date(this.#nextPaymentDate)
+        const date= `${result.toString().split(' ')[1]} ${result.toString().split(' ')[2]} ${result.toString().split(' ')[3]}` ;
+        return date;
     }
 }  
