@@ -44,7 +44,8 @@ export class CalculatorModel{
         return this.#amountReceivable;
     }
     get repaymentFee(){
-        return this.#repaymentFee;
+        const result = Math.round(this.#repaymentFee)
+        return result;
     }
     get loan(){
         return { amountReceivable:this.amountPayable(),repaymentFee:this.repaymentFee(),serviceFee:this.serviceFee()}
