@@ -35,7 +35,7 @@ function Sliders(props) {
           onChange={(e, val) => {
             changeAmount(val);
           }}
-          step={200}
+          step={100}
           min={500}
           max={50000}
         />
